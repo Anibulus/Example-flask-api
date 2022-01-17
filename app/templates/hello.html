@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%import 'macros.html' as macros%}
+{%import 'bootstrap/wtf.html' as wtf%}
+
+{%block title%}
+    Bienvenido
+    {{ super() }}
+{%endblock%}
+<!--Estructura de control-->
+{%block content%}
+    {% if username %}
+        <h1>Bienvenido {{username | capitalize}}</h1>
+    {% endif %}
+
+    {% if user_ip %}
+        <h3>{{ user_ip }}</h3>
+    {% else %}
+        <a href="{{ url_for('index') }}">Ir a inicio</a>
+    {% endif %}
+
+    <div class='container'>
+        <!--<form action='{{ url_for("hello") }}' method="POST">
+            
+                {{  login_form.username }}
+                {{  login_form.username.label }}
+        
+            {{ wtf.quick_form(login_form) }}
+        </form>-->
+    </div>
+
+    <ol>
+        {% for todo in todos %}
+        {{macros.render_todo(todo)}}
+        {% endfor %}
+    </ol>
+
+El método de depuración del patito de goma es un término informal utilizado en ingeniería de software para describir un método de revisión de código. El nombre es una referencia a una historia del libro The Pragmatic Programmer en donde un programador toma un patito de goma y revisa su código forzándose a sí mismo a explicarlo, línea por línea, al pato.1​ Existen otros muchos términos para esta técnica, que a menudo tienen que ver con objetos inanimados.
+{%endblock%}

@@ -1,0 +1,3 @@
+*.PNG
+venv/
+**/__pycache__/
