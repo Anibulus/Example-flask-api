@@ -10,5 +10,10 @@
         <li>
             <a href="https://platzi.com" target="_blank">Ir a platzi</a>
         </li>
+        {% if current_user.is.autenticated %}
+        <li>
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        </li>
+        {% end if%}
     </ul>
 </nav>
